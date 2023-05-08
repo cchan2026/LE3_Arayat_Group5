@@ -8,29 +8,57 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     
     <script>
-      function getItem(){
+      var contactsName[];
+      var contactsAd[];
+      var contactsNum[];
+      function displayName(){
+        document.getElementById("txtName").innerHTML = "";
+        for (var i=0; i<contactsProfile.length; i++){
+          document.getElementById("txtName").innerHTML = '<span class="d-inline-block">' + contactsName[i] + '</span>';
+        }
+      }
+      function getProfile(){
         var name = document.getElementById("personname").value;
         var address = document.getElementById("address").value;
         var phonenum = document.getElementById("phoneNo").value;
-        addToList(name, address, phonenum);
+        addToContacts(name, address, phonenum);
+      }
+      function addToContacts(n, a, p){
+        contactsName.push(n);
+        contactsAd.push(a);
+        contactsNum.push(p);
+        displayName();
+        displayAd();
+        displayNum();
+        localStorage.setItem("contactsName",JSON.stringify(contactsName));
+        localStorage.setItem("contactsAd",JSON.stringify(contactsAd));
+        localStorage.setItem("contactsNum",JSON.stringify(contactsNum));
+      }
+      function loadName(){
+        if(JSON.parse(localStorage.getItem('contactsName') != null)){
+          contactsName = JSON.parse(localStorage.getItem('contactsName'));
+          displayName();
+        }
+        if(JSON.parse(localStorage.getItem('contactsAd') != null)){
+          contactsAd = JSON.parse(localStorage.getItem('contactsAd'));
+          displayAd();
+        }
+        if(JSON.parse(localStorage.getItem('contactsNum') != null)){
+          contactsNum = JSON.parse(localStorage.getItem('contactsNum'));
+          displayNum();
+        }            
       }
     </script>
     <style>
-      .boxes{
-        display: flex;
-      }
-      .card h-100{
-        float: left;
-      }
+      
     </style>
   </head>
   
   <body class="container">
     <div class="main">
-      <div class="boxes">
-        <div class="card h-100">
+      <div class="card h-100">
         <div class="card-body">
-            <div class="col-sm-6">
+            <div class="col">
                  <div class="m-3 mb-4 form-group">
                      <label for="personname" class="mb-2">Name:</label>
                      <input type="text" class="form-control" id="personname" name="personname" placeholder="SURNAME, First Name M.I.">
@@ -46,7 +74,7 @@
                      <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Ex. 0999-999-0101">
                  </div>
                  
-                 <button id="myBtn" class="btn btn-primary" onClick="getItem()">Add to Contacts</button>
+                 <button id="myBtn" class="btn btn-primary" onClick="getProfile()">Add to Contacts</button>
               </div>
           </div>
         </div>
@@ -57,19 +85,19 @@
               
               <h5 class="d-flex justify-content-between p-3">
               <span class="d-inline-block">Name:</span>
-              <span class="d-inline-block" id="txttotal"><em>No information yet.</em></span>
+              <span class="d-inline-block" id="txtName"><em>No information yet.</em></span>
               </h5>
            
               <h5 class="d-flex justify-content-between p-3">
               <span class="d-inline-block">Address:</span>
-              <span class="d-inline-block" id="txttotal"><em>No information yet.</em></span>
+              <span class="d-inline-block" id="txtAdd"><em>No information yet.</em></span>
               </h5>
            
               <h5 class="d-flex justify-content-between p-3">
               <span class="d-inline-block">Contact Number:</span>
-              <span class="d-inline-block" id="txttotal"><em>No information yet.</em></span>
+              <span class="d-inline-block" id="txtNum"><em>No information yet.</em></span>
               </h5>
          </div>
-      </div>
+         
   </body>
 </html>
