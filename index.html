@@ -10,7 +10,7 @@
     <script>
       var friendsInfo = [];
       function displayName(){
-        document.getElementById("txtName").innerHTML = "";
+        document.getElementById("myList").innerHTML = "";
         for (var i=0; i<friendsInfo.length; i++){
           document.getElementById("myList").innerHTML += "<li class='list-group-item' onClick='showDetails()' id='" + i + '">' + friendsInfo[i].name '</li>';
         }
@@ -24,23 +24,15 @@
       function addToContacts(n, a, p){
         let friends = {name: n, address: a, phonenum: p};
         friendsInfo.push("friends");
-        localStorage.setItem("contactsName",JSON.stringify(contactsName));
-        localStorage.setItem("contactsAd",JSON.stringify(contactsAd));
-        localStorage.setItem("contactsNum",JSON.stringify(contactsNum));
+        localStorage.setItem("friendsInfo",JSON.stringify(friendsInfo));
       }
       function loadName(){
-        if(JSON.parse(localStorage.getItem('contactsName') != null)){
-          contactsName = JSON.parse(localStorage.getItem('contactsName'));
+        if(JSON.parse(localStorage.getItem('friendsInfo') != null))
+             friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
           displayName();
-        }
-        if(JSON.parse(localStorage.getItem('contactsAd') != null)){
-          contactsAd = JSON.parse(localStorage.getItem('contactsAd'));
-          displayAd();
-        }
-        if(JSON.parse(localStorage.getItem('contactsNum') != null)){
-          contactsNum = JSON.parse(localStorage.getItem('contactsNum'));
-          displayNum();
-        }            
+      }
+      function showDetails(){
+        
       }
     </script>
     <style>
