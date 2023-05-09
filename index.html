@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>d q na kaya i22222222</title>
+    <title>Yor Contacts</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   
@@ -27,8 +27,8 @@
         localStorage.setItem("friendsInfo",JSON.stringify(friendsInfo));
       }
       function loadName(){
-        if(JSON.parse(localStorage.getItem('friendsInfo') != null)){
-             friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));}
+        if(JSON.parse(localStorage.getItem('friendsInfo') != null))
+             friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
           displayName();
       }
       function showDetails(){
@@ -38,71 +38,73 @@
     <style>
     body{
       background-image: url('bgimg.png');
-      background-size: 100%;
     }
     .boxes{
-      display: table;
+        width: 1900px;
     }
-    #box1{
-      display: table-cell;
+    #box1, #box2{
+        margin-top: 20px;
     }
     #box2{
-      display: table-cell;
+        margin-left: 20px;
     }
     </style>
   </head>
   
   <body class="container">
-    <div class="main">
-      <div class="card h-100" id="box1">
-        <div class="card-body">
-            <div class="col-sm-6">
-                 <div class="m-3 mb-4 form-group">
-                     <label for="personname" class="mb-2">Name:</label>
-                     <input type="text" class="form-control" id="personname" name="personname" placeholder="SURNAME, First Name M.I.">
-                 </div>
-
-                  <div class="m-3 mb-4 form-group">
-                     <label for="address" class="mb-2">Address:</label>
-                     <input type="text" class="form-control" id="address" name="address" placeholder="Ex. Castle of Friendship, Ponyville">
-                 </div>
-
-                 <div class="m-3 mb-4 form-group">
-                     <label for="phoneNo" class="mb-2">Address:</label>
-                     <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Ex. 0999-999-0109">
-                 </div>
-                 
-                 <button id="myBtn" class="btn btn-primary" onClick="getProfile()">Add to Contacts</button>
-              </div>
-          </div>
-        </div>
-      </div> 
+    <img src="title.png" alt="title" style="margin-top: 30px; height: 120px;">
+    <div class="main" style="display: flex;">
+      <div style="display: table-row;">
+        <div class="card h-100" id="box1">
+            <div class="card-body">
+                <div class="col-sm-6">
+                     <div class="m-3 mb-4 form-group">
+                         <label for="personname" class="mb-2">Name:</label>
+                         <input type="text" class="form-control" id="personname" name="personname" placeholder="SURNAME, First Name M.I.">
+                     </div>
     
-      <div class="card" id="box2">
-         <div class="card-body">
-              <h4 class="text-center">PERSON'S CONTACT DETAILS</h5>
-              
-              <h5 class="d-flex justify-content-between p-3">
-              <span class="d-inline-block">Name:</span>
-              <span class="d-inline-block" id="txtName"><em>No information yet.</em></span>
-              </h5>
-           
-              <h5 class="d-flex justify-content-between p-3">
-              <span class="d-inline-block">Address:</span>
-              <span class="d-inline-block" id="txtAdd"><em>No information yet.</em></span>
-              </h5>
-           
-              <h5 class="d-flex justify-content-between p-3">
-              <span class="d-inline-block">Contact Number:</span>
-              <span class="d-inline-block" id="txtNum"><em>No information yet.</em></span>
-              </h5>
-              
-              <h4 class="text-center">CONTACTS</h4>
-              
-              <ul class="list-group" id="myList">
-                
-              </ul>
-         </div>
-       </div>  
+                      <div class="m-3 mb-4 form-group">
+                         <label for="address" class="mb-2">Address:</label>
+                         <input type="text" class="form-control" id="address" name="address" placeholder="Ex. Castle of Friendship, Ponyville">
+                     </div>
+    
+                     <div class="m-3 mb-4 form-group">
+                         <label for="phoneNo" class="mb-2">Address:</label>
+                         <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Ex. 0999-999-0109">
+                     </div>
+                     
+                     <button id="myBtn" class="btn btn-primary" onClick="getProfile()">Add to Contacts</button>
+                  </div>
+              </div>
+            </div>
+          </div> 
+        
+          <div class="card" id="box2">
+             <div class="card-body">
+                  <h4 class="text-center">PERSON'S CONTACT DETAILS</h5>
+                  
+                  <h5 class="d-flex justify-content-between p-3">
+                  <span class="d-inline-block">Name:</span>
+                  <span class="d-inline-block" id="txtName"><em>No information yet.</em></span>
+                  </h5>
+               
+                  <h5 class="d-flex justify-content-between p-3">
+                  <span class="d-inline-block">Address:</span>
+                  <span class="d-inline-block" id="txtAdd"><em>No information yet.</em></span>
+                  </h5>
+               
+                  <h5 class="d-flex justify-content-between p-3">
+                  <span class="d-inline-block">Contact Number:</span>
+                  <span class="d-inline-block" id="txtNum"><em>No information yet.</em></span>
+                  </h5>
+                  
+                  <h4 class="text-center">CONTACTS</h4>
+                  
+                  <ul class="list-group" id="myList">
+                    
+                  </ul>
+             </div>
+           </div> 
+      </div> 
     </body>
 </html>
