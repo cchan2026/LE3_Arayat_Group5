@@ -12,7 +12,7 @@
       function displayName(){
         document.getElementById("myList").innerHTML = "";
         for (var i=0; i<friendsInfo.length; i++){
-          document.getElementById("myList").innerHTML += "<li class='list-group-item' onClick='showDetails()' id='" + i + '">' + friendsInfo[i].name '</li>';
+          document.getElementById("myList").innerHTML += "<li class='list-group-item' onClick='showDetails()' id='" + i + '">' + friendsInfo[i].name + "</li>";
         }
       }
       function getProfile(){
@@ -27,8 +27,8 @@
         localStorage.setItem("friendsInfo",JSON.stringify(friendsInfo));
       }
       function loadName(){
-        if(JSON.parse(localStorage.getItem('friendsInfo') != null))
-             friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
+        if(JSON.parse(localStorage.getItem('friendsInfo') != null)){
+             friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));}
           displayName();
       }
       function showDetails(){
