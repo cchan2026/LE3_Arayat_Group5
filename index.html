@@ -47,6 +47,10 @@
         const address = document.getElementById("address").value;
         const phonenum = document.getElementById("phoneNo").value;
         addToContacts(name, address, phonenum);
+        
+        document.getElementById("personname").value = '';
+        document.getElementById("address").value = '';
+        document.getElementById("phoneNo").value = '';
       }
       function loadList() {
             if(JSON.parse(localStorage.getItem('friendsInfo') != null))
