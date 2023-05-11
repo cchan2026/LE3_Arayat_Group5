@@ -53,7 +53,7 @@
       }
       function loadList() {
             if(JSON.parse(localStorage.getItem('friendsInfo') != null))
-                favoriteThings = JSON.parse(localStorage.getItem('friendsInfo'));
+                friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
             displayName();
         }
       function showDetails(){
@@ -106,7 +106,7 @@
                      </div>
     
                      <div class="m-3 mb-4 form-group">
-                         <label for="phoneNo" class="mb-2">Address:</label>
+                         <label for="phoneNo" class="mb-2">Phone number:</label>
                          <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Ex. 09xx-xxx-xxxx" style="width: 435px;">
                      </div>
                      
