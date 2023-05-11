@@ -51,11 +51,7 @@
         document.getElementById("address").value = '';
         document.getElementById("phoneNo").value = '';
       }
-      function loadList() {
-            if(JSON.parse(localStorage.getItem('friendsInfo') != null))
-                friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
-            displayName();
-        }
+      
       function showDetails(){
         let balls = event.srcElement.id;
         
@@ -63,6 +59,12 @@
         document.getElementById("txtAdd").value = friendsInfo[balls].address;
         document.getElementById("txtNum").value = friendsInfo[balls].phonenum;
       }
+      
+      function loadList() {
+            if(JSON.parse(localStorage.getItem('friendsInfo') != null))
+                friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
+            displayName();
+        }
 
     </script>
     <style>
