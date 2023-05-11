@@ -15,17 +15,6 @@
     <script>
       let friendsInfo = [];
 
-      const btn = document.getElementById('myBtn');
-      console.log(btn);
-      btn.addEventListener('click', function buttonClick(event){
-        event.preventDefault();
-        const inputs = document.querySelectorAll('#txtName, #txtAdd, #txtNum');
-        inputs.forEach(input => {
-          input.value = '';
-        });
-        console.log("help me");
-      })
-
       function displayName(){
         document.getElementById("myList").innerHTML = "";
         console.log(friendsInfo[0].phonenum);
@@ -58,6 +47,8 @@
             displayName();
         }
       function showDetails(){
+        let i = event.srcElement.id;
+        
         document.getElementById("txtName").value = friendsInfo[i].name;
         document.getElementById("txtAdd").value = friendsInfo[i].address;
         document.getElementById("txtNum").value = friendsInfo[i].phonenum;
