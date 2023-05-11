@@ -16,11 +16,18 @@
       let friendsInfo = [];
 
       function displayName(){
+        friendsStorage = localStorage.getItem("friendsInfo");
+        friends = JSON.parse(friendsStorage);
+        if (friends == null){
+          document.getElementById("myList").innerHTML = '<li class="list-group-item">No friends yet.</li>';
+        }
+        else{
         document.getElementById("myList").innerHTML = "";
         console.log(friendsInfo[0].phonenum);
         for (var i=0; i<friendsInfo.length; i++){
           console.log(friendsInfo[0].address);
           document.getElementById("myList").innerHTML += '<li class="list-group-item" onClick="showDetails()" id="' + i + '">' + friendsInfo[i].name + '</li>';
+        }
         }
       }
       function addToContacts(n, a, p){
