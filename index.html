@@ -27,12 +27,9 @@
         for (var i=0; i<friendsInfo.length; i++){
           console.log(friendsInfo[0].address);
           document.getElementById("myList").innerHTML += '<li class="list-group-item text-center" onClick="showDetails()" id="' + i + '">' + friendsInfo[i].name + '</li>';
-        }
-        }
-        document.getElementById("txtName").value = friendsInfo[i].name;
-        document.getElementById("txtAdd").value = friendsInfo[i].address;
-        document.getElementById("txtNum").value = friendsInfo[i].phonenum;
       }
+        }
+        }
       function addToContacts(n, a, p){
         var friends = {name: n, address: a, phonenum: p};
         console.log(friends);
@@ -56,9 +53,9 @@
       function showDetails(){
         let that = event.srcElement.id;
         
-        document.getElementById("txtName").value = friendsInfo[that].name;
-        document.getElementById("txtAdd").value = friendsInfo[that].address;
-        document.getElementById("txtNum").value = friendsInfo[that].phonenum;
+        document.getElementById("txtName").innerHTML = friendsInfo[that].name;
+        document.getElementById("txtAdd").innerHTML = friendsInfo[that].address;
+        document.getElementById("txtNum").innerHTML = friendsInfo[that].phonenum;
       }
       
       function loadList() {
