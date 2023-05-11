@@ -13,32 +13,52 @@
     <!--font-family: 'Ubuntu', sans-serif;-->
   
     <script>
-      var friendsInfo = [];
+      let friendsInfo = [];
+
+      const btn = document.getElementById('myBtn');
+      console.log(btn);
+      btn.addEventListener('click', function buttonClick(event){
+        event.preventDefault();
+        const inputs = document.querySelectorAll('#txtName, #txtAdd, #txtNum');
+        inputs.forEach(input => {
+          input.value = '';
+        });
+        console.log("help me");
+      })
+
       function displayName(){
         document.getElementById("myList").innerHTML = "";
+        console.log(friendsInfo[0].phonenum);
         for (var i=0; i<friendsInfo.length; i++){
-          document.getElementById("myList").innerHTML += "<li class='list-group-item' onClick='showDetails()' id='" + i + '">' + friendsInfo[i].name + "</li>";
+          console.log(friendsInfo[0].address);
+          document.getElementById("myList").innerHTML += '<li class="list-group-item" onClick="showDetails()" id="' + i + '">' + friendsInfo[i].name + '</li>';
         }
-      }
-      function getProfile(){
-        var name = document.getElementById("personname").value;
-        var address = document.getElementById("address").value;
-        var phonenum = document.getElementById("phoneNo").value;
-        addToContacts(name, address, phonenum);
       }
       function addToContacts(n, a, p){
         let friends = {name: n, address: a, phonenum: p};
-        friendsInfo.push("friends");
+        console.log(friends);
+        friendsInfo.push(friends);
+        console.log(friendsInfo[0].name);
+        displayName();
         localStorage.setItem("friendsInfo",JSON.stringify(friendsInfo));
       }
-      function loadName(){
-        if(JSON.parse(localStorage.getItem('friendsInfo') != null))
-             friendsInfo = JSON.parse(localStorage.getItem('friendsInfo'));
-          displayName();
+      function getProfile(){ 
+        const name = document.getElementById("personname").value;
+        const address = document.getElementById("address").value;
+        const phonenum = document.getElementById("phoneNo").value;
+        addToContacts(name, address, phonenum);
       }
+      function loadList() {
+            if(JSON.parse(localStorage.getItem('friendsInfo') != null))
+                favoriteThings = JSON.parse(localStorage.getItem('friendsInfo'));
+            displayName();
+        }
       function showDetails(){
-        
+        document.getElementById("txtName").value = friendsInfo[i].name;
+        document.getElementById("txtAdd").value = friendsInfo[i].address;
+        document.getElementById("txtNum").value = friendsInfo[i].phonenum;
       }
+
     </script>
     <style>
     body{
