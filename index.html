@@ -45,11 +45,12 @@
         const name = document.getElementById("personname").value;
         const address = document.getElementById("address").value;
         const phonenum = document.getElementById("phoneNo").value;
-        addToContacts(name, address, phonenum);
         
         document.getElementById("personname").value = '';
         document.getElementById("address").value = '';
         document.getElementById("phoneNo").value = '';
+        
+        addToContacts(name, address, phonenum);
       }
       
       function showDetails(){
