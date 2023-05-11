@@ -26,9 +26,12 @@
         console.log(friendsInfo[0].phonenum);
         for (var i=0; i<friendsInfo.length; i++){
           console.log(friendsInfo[0].address);
-          document.getElementById("myList").innerHTML += '<li class="list-group-item" onClick="showDetails()" id="' + i + '">' + friendsInfo[i].name + '</li>';
+          document.getElementById("myList").innerHTML += '<li class="list-group-item text-center" onClick="showDetails()" id="' + i + '">' + friendsInfo[i].name + '</li>';
         }
         }
+        document.getElementById("txtName").value = friendsInfo[i].name;
+        document.getElementById("txtAdd").value = friendsInfo[i].address;
+        document.getElementById("txtNum").value = friendsInfo[i].phonenum;
       }
       function addToContacts(n, a, p){
         let friends = {name: n, address: a, phonenum: p};
