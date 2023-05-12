@@ -16,9 +16,8 @@
       let friendsInfo = [];
 
       function displayName(){
-        friendsStorage = localStorage.getItem("friendsInfo");
-        friends = JSON.parse(friendsStorage);
-        if (friends == null){
+        
+        if (friendsInfo == null){
           document.getElementById("myList").innerHTML = '<li class="list-group-item">No friends yet.</li>';
         }
         else{
